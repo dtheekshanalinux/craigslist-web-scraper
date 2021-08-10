@@ -2,27 +2,43 @@
 
 {% block content %}
 
-    <h2 style="text-align: center;">{{search|title}}</h2>
+    <style>
+        @media screen and (max-width: 600px) {
+            .getc {
+                display: flex;
+                flex-direction: column;
+                margin-right: 280px;
+                padding-left: 10px;
+            }
+            .card{
+                width: 900%;
+    
+            }
 
-    <div class="row">
-        {% for post in final_postings %}
-            <div class="col s4">
-                <div class="card">
-                    <div class="card-image">
-                       <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a>
-                    </div>
-                    <div class="card-content">
-                        <p>{{ post.0 }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ post.1 }}">view listing price: {{ post.2 }}</a>
+        }
+    </style>
+
+    <h2 style="text-align: center;">{{search|title}}</h2>
+    <div class="flex-box-container">
+        <div class="row getc">
+            {% for post in final_postings %}
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                        <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ post.0 }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ post.1 }}">view listing price: {{ post.2 }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-
-    
-{% endblock content %}
+        
+    {% endblock content %}
 
 
